@@ -1,4 +1,5 @@
 from django.db import models
+from autoslug import AutoSlugField
 
 
 class newsCategory(models.Model):
@@ -19,6 +20,7 @@ class News(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     update_on = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(newsCategory, on_delete=models.CASCADE, related_name='news')
+    slug = AutoSlugField(populate_from='baslik', unique=True, editable=True, blank=True)
 
     class Meta:
         db_table = 'News'
