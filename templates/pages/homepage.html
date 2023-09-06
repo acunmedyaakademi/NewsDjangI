@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 {% load static%}
-{% block page_title %}  {% endblock %}
 {% block content %}
-    {%for haber in haberler%}
+
 
 		<!-- ticker-news-section
 			================================================== -->
@@ -12,10 +11,9 @@
 				<div class="ticker-news-box">
 					<span class="breaking-news">Son Dakika Haberleri</span>
 					<ul id="js-news">
+						{% for haber in haberler%}
 						<li class="news-item"><span class="time-news">{{haber.created_on}}</span>  <a href="#">{{haber.title}}</a></li>
-						<li class="news-item"><span class="time-news">{{haber.created_on}}</span>  <a href="#">{{haber.title}}</a></li>
-						<li class="news-item"><span class="time-news">{{haber.created_on}}</span>  <a href="#">{{haber.title}} </a></li>
-						<li class="news-item"><span class="time-news">{{haber.created_on}}</span>  <a href="#">{{haber.title}}</a></li>
+						{% endfor %}
 					</ul>
 				</div>
 			</div>
@@ -33,16 +31,16 @@
 					<div class="owl-wrapper">
 						<div class="owl-carousel" data-num="4">
 
-
-
+							{% for haber in haberler%}
 							<div class="item">
 								<div class="news-post show-post">
+
 									<div class="post-gallery">
-										<img src="upload/news-posts/h2.jpg" alt="">
+										<img src="{{ haber.image.url }}" alt="">
 									</div>
 									<div class="post-content">
 										<a class="category-post" href="showbiz-category.html">{{haber.category}}</a>
-										<h2><a href="{% url 'news_detail' slug=haber.slug %}">{{haber.title}}</a></h2>
+										<h2><a href="{% url 'news_detail' id=haber.id %}">{{ haber.title }}</a></h2>
 										<ul class="post-tags">
 											<li><i class="fa fa-clock-o"></i>{{haber.created_on}}</li>
 											<li><i class="fa fa-user"></i>by <a href="#"></a></li>
@@ -51,58 +49,7 @@
 									</div>
 								</div>
 							</div>
-
-							<div class="item">
-								<div class="news-post show-post">
-									<div class="post-gallery">
-										<img src="upload/news-posts/h3.jpg" alt="">
-									</div>
-									<div class="post-content">
-										<a class="category-post" href="#">{{haber.category}}</a>
-										<h2><a href="{% url 'news_detail' slug=haber.slug %}">{{haber.title}}</a></h2>
-										<ul class="post-tags">
-											<li><i class="fa fa-clock-o"></i>{{haber.created_on}}</li>
-											<li><i class="fa fa-user"></i>by <a href="#"></a></li>
-											<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-
-							<div class="item">
-								<div class="news-post show-post">
-									<div class="post-gallery">
-										<img src="upload/news-posts/h4.jpg" alt="">
-									</div>
-									<div class="post-content">
-										<a class="category-post" href="#">{{haber.category}}</a>
-										<h2><a href="{% url 'news_detail' slug=haber.slug %}">{{haber.title}}</a></h2>
-										<ul class="post-tags">
-											<li><i class="fa fa-clock-o"></i>{{haber.created_on}}</li>
-											<li><i class="fa fa-user"></i>by <a href="#"></a></li>
-											<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-
-							<div class="item">
-								<div class="news-post show-post">
-									<div class="post-gallery">
-										<img src="upload/news-posts/h1.jpg" alt="">
-									</div>
-									<div class="post-content">
-										<a class="category-post" href="showbiz-category.html">News</a>
-										<h2><a href="single-post.html">Praesent placerat risus quis eros.</a></h2>
-										<ul class="post-tags">
-											<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-											<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-
+							{% endfor %}
 						</div>
 					</div>
 
@@ -130,17 +77,17 @@
 
 								<div class="owl-wrapper">
 									<div class="owl-carousel" data-num="1">
-
+										{% for haber in haberler%}
 										<div class="item">
 											<div class="news-post image-post2">
 												<div class="post-gallery">
-													<img src="upload/news-posts/img1.jpg" alt="">
+													<img src="{{ haber.image.url }}" alt="">
 													<div class="hover-box">
 														<div class="inner-hover">
-															<a class="category-post" href="showbiz-category.html">love</a>
-															<h2><a href="single-post.html">Nullam quis massa sit amet nibh viverra malesuada. </a></h2>
+															<a class="category-post" href="#">{{haber.category}}</a>
+															<h2><a href="{% url 'news_detail' id=haber.id %}">{{haber.title}}</a></h2>
 															<ul class="post-tags">
-																<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+																<li><i class="fa fa-clock-o"></i>{{haber.created_on}}</li>
 																<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
 																<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
 															</ul>
@@ -149,6 +96,7 @@
 												</div>
 											</div>
 										</div>
+										{% endfor %}
 
 										<div class="item">
 											<div class="news-post image-post2">
@@ -774,7 +722,6 @@
 		</section>
 		<!-- End block-wrapper-section -->
 
-	{%endfor%}
 {%endblock%}
 
 
