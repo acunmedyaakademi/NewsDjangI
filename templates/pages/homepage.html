@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static%}
 {% block page_title %}  {% endblock %}
 {% block content %}
     {%for haber in haberler%}
@@ -9,12 +10,12 @@
 
 			<div class="container">
 				<div class="ticker-news-box">
-					<span class="breaking-news">breaking news</span>
+					<span class="breaking-news">Son Dakika Haberleri</span>
 					<ul id="js-news">
-						<li class="news-item"><span class="time-news">11:36 pm</span>  <a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</a> Donec odio. Quisque volutpat mattis eros... </li>
-						<li class="news-item"><span class="time-news">12:40 pm</span>  <a href="#">Dëshmitarja Abrashi: E kam parë Oliverin në turmë,</a> ndërsa neve na shpëtoi “çika Mille” </li>
-						<li class="news-item"><span class="time-news">11:36 pm</span>  <a href="#">Franca do të bashkëpunojë me Kosovën në fushën e shëndetësisë. </a></li>
-						<li class="news-item"><span class="time-news">01:00 am</span>  <a href="#">DioGuardi, kështu e mbrojti Kosovën në Washington, </a> para serbit Vejvoda </li>
+						<li class="news-item"><span class="time-news">{{haber.created_on}}</span>  <a href="#">{{haber.title}}</a></li>
+						<li class="news-item"><span class="time-news">{{haber.created_on}}</span>  <a href="#">{{haber.title}}</a></li>
+						<li class="news-item"><span class="time-news">{{haber.created_on}}</span>  <a href="#">{{haber.title}} </a></li>
+						<li class="news-item"><span class="time-news">{{haber.created_on}}</span>  <a href="#">{{haber.title}}</a></li>
 					</ul>
 				</div>
 			</div>
@@ -32,22 +33,7 @@
 					<div class="owl-wrapper">
 						<div class="owl-carousel" data-num="4">
 
-							<div class="item">
-								<div class="news-post show-post">
-									<div class="post-gallery">
-										<img src="upload/news-posts/h1.jpg" alt="">
-									</div>
-									<div class="post-content">
-										<a class="category-post" href="showbiz-category.html">News</a>
-										<h2><a href="single-post.html">Praesent placerat risus quis eros.</a></h2>
-										<ul class="post-tags">
-											<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-											<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
+
 
 							<div class="item">
 								<div class="news-post show-post">
@@ -55,11 +41,11 @@
 										<img src="upload/news-posts/h2.jpg" alt="">
 									</div>
 									<div class="post-content">
-										<a class="category-post" href="showbiz-category.html">Fashion</a>
-										<h2><a href="single-post.html">Cras ornare tristique elit.</a></h2>
+										<a class="category-post" href="showbiz-category.html">{{haber.category}}</a>
+										<h2><a href="{% url 'news_detail' slug=haber.slug %}">{{haber.title}}</a></h2>
 										<ul class="post-tags">
-											<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
+											<li><i class="fa fa-clock-o"></i>{{haber.created_on}}</li>
+											<li><i class="fa fa-user"></i>by <a href="#"></a></li>
 											<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
 										</ul>
 									</div>
@@ -72,11 +58,11 @@
 										<img src="upload/news-posts/h3.jpg" alt="">
 									</div>
 									<div class="post-content">
-										<a class="category-post" href="showbiz-category.html">Beaty</a>
-										<h2><a href="single-post.html">Cras consequat.</a></h2>
+										<a class="category-post" href="#">{{haber.category}}</a>
+										<h2><a href="{% url 'news_detail' slug=haber.slug %}">{{haber.title}}</a></h2>
 										<ul class="post-tags">
-											<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
+											<li><i class="fa fa-clock-o"></i>{{haber.created_on}}</li>
+											<li><i class="fa fa-user"></i>by <a href="#"></a></li>
 											<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
 										</ul>
 									</div>
@@ -89,11 +75,11 @@
 										<img src="upload/news-posts/h4.jpg" alt="">
 									</div>
 									<div class="post-content">
-										<a class="category-post" href="showbiz-category.html">Music</a>
-										<h2><a href="single-post.html">Vivamus molestie gravida turpis.</a></h2>
+										<a class="category-post" href="#">{{haber.category}}</a>
+										<h2><a href="{% url 'news_detail' slug=haber.slug %}">{{haber.title}}</a></h2>
 										<ul class="post-tags">
-											<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-											<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
+											<li><i class="fa fa-clock-o"></i>{{haber.created_on}}</li>
+											<li><i class="fa fa-user"></i>by <a href="#"></a></li>
 											<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
 										</ul>
 									</div>

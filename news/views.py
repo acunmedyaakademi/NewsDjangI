@@ -10,8 +10,8 @@ def homepage(request):
         'haberler': haberler
     })
 
-def news_detail(request, id):
-    haber = get_object_or_404(News, id=id)
+def news_detail(request, slug):
+    haber = get_object_or_404(News, slug=slug)
     return render(request, 'pages/single-post.html', {
         'haber': haber
     })
