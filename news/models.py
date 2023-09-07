@@ -2,12 +2,23 @@ from django.db import models
 from autoslug import AutoSlugField
 
 
+
+class Author(models.Model):
+    name = models.CharField(max_length=120)
+    about = models.TextField()
+    image = models.ImageField(upload_to='news_author_images/', default='default_image.jpg')
+
+    def __str__(self):
+        return self.name
+
+
 class newsCategory(models.Model):
      name = models.CharField(max_length=120)
      class Meta:
          db_table = 'NewsCategories'
          verbose_name = 'Haber Kategorisi'
          verbose_name_plural = 'Haber Kategorileri'
+
 
      def __str__(self):
          return self.name
@@ -22,7 +33,7 @@ class News(models.Model):
     category = models.ForeignKey(newsCategory, on_delete=models.CASCADE, related_name='news')
     slug = AutoSlugField(populate_from='baslik', unique=True, editable=True, blank=True)
     image = models.ImageField(upload_to='news_images/', default='default_image.jpg')
-    author = models.CharField(max_length=120, default="Yazar")
+    author = models.ForeignKey(Author,on_delete=models.CASCADE, default="Yazar")
 
     class Meta:
         db_table = 'News'
