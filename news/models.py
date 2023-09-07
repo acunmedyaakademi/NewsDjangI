@@ -22,6 +22,7 @@ class News(models.Model):
     category = models.ForeignKey(newsCategory, on_delete=models.CASCADE, related_name='news')
     slug = AutoSlugField(populate_from='baslik', unique=True, editable=True, blank=True)
     image = models.ImageField(upload_to='news_images/', default='default_image.jpg')
+    author = models.CharField(max_length=120, default="Yazar")
 
     class Meta:
         db_table = 'News'

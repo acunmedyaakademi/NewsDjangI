@@ -68,129 +68,22 @@
 				<div class="block-content non-sidebar">
 
 					<!-- grid box -->
-					<div class="grid-box">
-						<div class="row">
-							<div class="col-md-6">
-								<div class="title-section">
-									<h1><span>Latest Celebrity</span></h1>
-								</div>
 
-								<div class="owl-wrapper">
-									<div class="owl-carousel" data-num="1">
-										{% for haber in haberler%}
-										<div class="item">
-											<div class="news-post image-post2">
-												<div class="post-gallery">
-													<img src="{{ haber.image.url }}" alt="">
-													<div class="hover-box">
-														<div class="inner-hover">
-															<a class="category-post" href="#">{{haber.category}}</a>
-															<h2><a href="{% url 'news_detail' id=haber.id %}">{{haber.title}}</a></h2>
-															<ul class="post-tags">
-																<li><i class="fa fa-clock-o"></i>{{haber.created_on}}</li>
-																<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-																<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-															</ul>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										{% endfor %}
-
-										<div class="item">
-											<div class="news-post image-post2">
-												<div class="post-gallery">
-													<img src="upload/news-posts/img2.jpg" alt="">
-													<div class="hover-box">
-														<div class="inner-hover">
-															<a class="category-post" href="showbiz-category.html">music</a>
-															<h2><a href="single-post.html">Nullam quis massa sit amet nibh viverra malesuada. </a></h2>
-															<ul class="post-tags">
-																<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-																<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-																<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-															</ul>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-
-							<div class="col-md-6">
-								<div class="title-section">
-									<h1><span>LLatest Entertainment</span></h1>
-								</div>
-
-								<div class="owl-wrapper">
-									<div class="owl-carousel" data-num="2">
-
-										<div class="item news-post standard-post">
-											<div class="post-gallery">
-												<img src="upload/news-posts/st1.jpg" alt="">
-											</div>
-											<div class="post-content">
-												<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-												<ul class="post-tags">
-													<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-													<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-												</ul>
-											</div>
-										</div>
-
-										<div class="item news-post standard-post">
-											<div class="post-gallery">
-												<img src="upload/news-posts/st2.jpg" alt="">
-											</div>
-											<div class="post-content">
-												<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-												<ul class="post-tags">
-													<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-													<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-												</ul>
-											</div>
-										</div>
-
-										<div class="item news-post standard-post">
-											<div class="post-gallery">
-												<img src="upload/news-posts/st3.jpg" alt="">
-											</div>
-											<div class="post-content">
-												<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-												<ul class="post-tags">
-													<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-													<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-												</ul>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 					<!-- End grid box -->
 
 					<!-- google addsense -->
 					<div class="advertisement">
 						<div class="desktop-advert">
 							<span>Advertisement</span>
-							<img src="upload/addsense/728x90-white.jpg" alt="">
+							<img src="{% static 'upload/addsense/728x90-white.jpg' %}" alt="">
 						</div>
 						<div class="tablet-advert">
 							<span>Advertisement</span>
-							<img src="upload/addsense/468x60-white.jpg" alt="">
+							<img src="{% static 'upload/addsense/468x60-white.jpg' %}" alt="">
 						</div>
 						<div class="mobile-advert">
 							<span>Advertisement</span>
-							<img src="upload/addsense/300x250.jpg" alt="">
+							<img src="{% static 'upload/addsense/300x250.jpg' %}" alt="">
 						</div>
 					</div>
 					<!-- End google addsense -->
@@ -206,71 +99,29 @@
 		<section class="latest-fashion">
 			<div class="container">
 				<div class="title-section white">
-					<h1><span>latest fashion</span></h1>
+					<h1><span>Haberler</span></h1>
 				</div>
 
 				<div class="fatest-fashion owl-wrapper">
 					<div class="owl-carousel" data-num="3">
-
+						{% for haber in haberler%}
 						<div class="item news-post fashion-post">
 							<div class="post-gallery">
-								<img alt="" src="upload/news-posts/im1.jpg">
+								<img alt="" src="{{ haber.image.url }}">
 							</div>
 							<div class="post-content">
-								<a href="showbiz-category.html">Collection</a>
-								<h2><a href="single-post.html">Morbi in sem quis dui placerat ornare.</a></h2>
+								<a href="showbiz-category.html">{{haber.category}}</a>
+								<h2><a href="{% url 'news_detail' id=haber.id %}">{{ haber.title }}</a></h2>
 								<ul class="post-tags">
-									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+									<li><i class="fa fa-clock-o"></i>{{haber.created_on}}</li>
 									<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
 									<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
 								</ul>
 							</div>
 						</div>
+						{% endfor %}
 
-						<div class="item news-post fashion-post">
-							<div class="post-gallery">
-								<img alt="" src="upload/news-posts/im2.jpg">
-							</div>
-							<div class="post-content">
-								<a href="showbiz-category.html">Shopping</a>
-								<h2><a href="single-post.html">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </a></h2>
-								<ul class="post-tags">
-									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-									<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-									<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-								</ul>
-							</div>
-						</div>
 
-						<div class="item news-post fashion-post">
-							<div class="post-gallery">
-								<img alt="" src="upload/news-posts/im3.jpg">
-							</div>
-							<div class="post-content">
-								<a href="showbiz-category.html">Style</a>
-								<h2><a href="single-post.html">Fusce accumsan mollis eros. </a></h2>
-								<ul class="post-tags">
-									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-									<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-									<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="item news-post fashion-post">
-							<div class="post-gallery">
-								<img alt="" src="upload/news-posts/im4.jpg">
-							</div>
-							<div class="post-content">
-								<a href="showbiz-category.html">Collection</a>
-								<h2><a href="single-post.html">Morbi in sem quis dui placerat ornare.</a></h2>
-								<ul class="post-tags">
-									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-									<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-									<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-								</ul>
-							</div>
-						</div>
 
 					</div>
 				</div>
