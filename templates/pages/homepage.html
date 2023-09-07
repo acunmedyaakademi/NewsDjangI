@@ -39,12 +39,11 @@
 										<img src="{{ haber.image.url }}" alt="">
 									</div>
 									<div class="post-content">
-										<a class="category-post" href="showbiz-category.html">{{haber.category}}</a>
+										<a class="category-post" href="#">{{haber.category}}</a>
 										<h2><a href="{% url 'news_detail' id=haber.id %}">{{ haber.title }}</a></h2>
 										<ul class="post-tags">
 											<li><i class="fa fa-clock-o"></i>{{haber.created_on}}</li>
-											<li><i class="fa fa-user"></i>by <a href="#"></a></li>
-											<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+											<li><i class="fa fa-user"></i>by <a href="#">{{haber.author}}</a></li>
 										</ul>
 									</div>
 								</div>
@@ -110,21 +109,18 @@
 								<img alt="" src="{{ haber.image.url }}">
 							</div>
 							<div class="post-content">
-								<a href="showbiz-category.html">{{haber.category}}</a>
+								<a href="#">{{haber.category}}</a>
 								<h2><a href="{% url 'news_detail' id=haber.id %}">{{ haber.title }}</a></h2>
 								<ul class="post-tags">
 									<li><i class="fa fa-clock-o"></i>{{haber.created_on}}</li>
-									<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-									<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+									<li><i class="fa fa-user"></i>by <a href="#">{{haber.author}}</a></li>
 								</ul>
 							</div>
 						</div>
-						{% endfor %}
-
-
-
+						{%endfor%}
 					</div>
 				</div>
+
 			</div>
 		</section>
 		<!-- End latest-fashion-section -->
@@ -143,134 +139,30 @@
 							<div class="masonry-box">
 
 								<div class="title-section">
-									<h1><span>Latest Articles</span></h1>
+									<h1><span>Haberler</span></h1>
 								</div>
-
 								<div class="latest-articles iso-call">
-
-									<div class="news-post fashion-post full-size">
-										<div class="post-gallery">
-											<img src="upload/news-posts/1.jpg" alt="">
-										</div>
-										<div class="post-content">
-											<a href="showbiz-category.html">celebrity</a>
-											<h2><a href="single-post.html">Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl.</a></h2>
-											<ul class="post-tags">
-												<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-												<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-												<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-											</ul>
-											<p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. </p>
-										</div>
-									</div>
-
+									{% for haber in haberler%}
 									<div class="news-post fashion-post default-size">
 										<div class="post-gallery">
-											<img src="upload/news-posts/2.jpg" alt="">
+											<img src="{{ haber.image.url }}" alt="">
 										</div>
 										<div class="post-content">
-											<a href="showbiz-category.html">shopping</a>
-											<h2><a href="single-post.html">Suspendisse mauris.</a></h2>
+											<a href="#">{{haber.category}}</a>
+											<h2><a href="{% url 'news_detail' id=haber.id %}">{{ haber.title }}</a></h2>
 											<ul class="post-tags">
-												<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-												<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-												<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+												<li><i class="fa fa-clock-o"></i>{{haber.created_on}}</li>
+												<li><i class="fa fa-user"></i>by <a href="#">{{haber.author}}</a></li>
 											</ul>
 										</div>
 									</div>
-
-									<div class="news-post fashion-post">
-										<div class="post-gallery">
-											<img src="upload/news-posts/3.jpg" alt="">
-										</div>
-										<div class="post-content">
-											<a href="showbiz-category.html">food</a>
-											<h2><a href="single-post.html">Nullam quis massa sit amet nibh viverra malesuada. </a></h2>
-											<ul class="post-tags">
-												<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-												<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-												<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-											</ul>
-										</div>
-									</div>
-
-									<div class="news-post fashion-post">
-										<div class="post-gallery">
-											<img src="upload/news-posts/4.jpg" alt="">
-										</div>
-										<div class="post-content">
-											<a href="showbiz-category.html">news</a>
-											<h2><a href="single-post.html">Vivamus imperdiet nibh feugiat est.</a></h2>
-											<ul class="post-tags">
-												<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-												<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-												<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-											</ul>
-										</div>
-									</div>
-
-									<div class="news-post fashion-post">
-										<div class="post-gallery">
-											<img src="upload/news-posts/5.jpg" alt="">
-										</div>
-										<div class="post-content">
-											<a href="showbiz-category.html">love</a>
-											<h2><a href="single-post.html">Vivamus imperdiet nibh feugiat est.</a></h2>
-											<ul class="post-tags">
-												<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-												<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-												<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-											</ul>
-										</div>
-									</div>
-
-									<div class="news-post fashion-post">
-										<div class="post-gallery">
-											<img src="upload/news-posts/7.jpg" alt="">
-										</div>
-										<div class="post-content">
-											<a href="showbiz-category.html">fashion</a>
-											<h2><a href="single-post.html">Vivamus imperdiet nibh feugiat est.</a></h2>
-											<ul class="post-tags">
-												<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-												<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-												<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-											</ul>
-										</div>
-									</div>
-
-									<div class="news-post fashion-post">
-										<div class="post-gallery">
-											<img src="upload/news-posts/6.jpg" alt="">
-										</div>
-										<div class="post-content">
-											<a href="showbiz-category.html">make-up</a>
-											<h2><a href="single-post.html">Integer eu magna sit amet metus fermentum posuere. </a></h2>
-											<ul class="post-tags">
-												<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-												<li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-												<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-											</ul>
-										</div>
-									</div>
-
+									{%endfor%}
 								</div>
 
 							</div>
 							<!-- End masonry box -->
 
 							<!-- pagination box -->
-							<div class="pagination-box">
-								<ul class="pagination-list">
-									<li><a class="active" href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><span>...</span></li>
-									<li><a href="#">9</a></li>
-									<li><a href="#">Next</a></li>
-								</ul>
-								<p>Page 1 of 9</p>
-							</div>
 							<!-- End pagination box -->
 
 						</div>
@@ -285,265 +177,59 @@
 
 							<div class="widget social-widget">
 								<div class="title-section">
-									<h1><span>Stay Connected</span></h1>
+									<h1><span>Bizimle Kalın</span></h1>
 								</div>
 								<ul class="social-share">
 									<li>
 										<a href="#" class="rss"><i class="fa fa-rss"></i></a>
 										<span class="number">9,455</span>
-										<span>Subscribers</span>
+										<span>Abone</span>
 									</li>
 									<li>
 										<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
 										<span class="number">56,743</span>
-										<span>Fans</span>
+										<span>Hayran</span>
 									</li>
 									<li>
 										<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
 										<span class="number">43,501</span>
-										<span>Followers</span>
+										<span>Takipçi</span>
 									</li>
 									<li>
 										<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
 										<span class="number">35,003</span>
-										<span>Followers</span>
+										<span>Takipçi</span>
 									</li>
 								</ul>
 							</div>
 
-							<div class="widget features-slide-widget">
-								<div class="title-section">
-									<h1><span>Featured Posts</span></h1>
-								</div>
-								<div class="image-post-slider">
-									<ul class="bxslider">
-										<li>
-											<div class="news-post image-post2">
-												<div class="post-gallery">
-													<img src="upload/news-posts/im5.jpg" alt="">
-													<div class="hover-box">
-														<div class="inner-hover">
-															<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-															<ul class="post-tags">
-																<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-																<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-															</ul>
-														</div>
-													</div>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="news-post image-post2">
-												<div class="post-gallery">
-													<img src="upload/news-posts/im6.jpg" alt="">
-													<div class="hover-box">
-														<div class="inner-hover">
-															<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-															<ul class="post-tags">
-																<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-																<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-															</ul>
-														</div>
-													</div>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="news-post image-post2">
-												<div class="post-gallery">
-													<img src="upload/news-posts/im7.jpg" alt="">
-													<div class="hover-box">
-														<div class="inner-hover">
-															<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-															<ul class="post-tags">
-																<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-																<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-															</ul>
-														</div>
-													</div>
-												</div>
-											</div>
-										</li>
-									</ul>
-								</div>
-							</div>
 
 							<div class="widget tab-posts-widget">
 
 								<ul class="nav nav-tabs" id="myTab">
 									<li class="active">
-										<a href="#option1" data-toggle="tab">Popular</a>
-									</li>
-									<li>
-										<a href="#option2" data-toggle="tab">Recent</a>
-									</li>
-									<li>
-										<a href="#option3" data-toggle="tab">Top Reviews</a>
+										<a href="#option1" data-toggle="tab">Gündem</a>
 									</li>
 								</ul>
 
 								<div class="tab-content">
 									<div class="tab-pane active" id="option1">
 										<ul class="list-posts">
+											{% for haber in haberler%}
 											<li>
-												<img src="upload/news-posts/listw1.jpg" alt="">
+												<img src="{{ haber.image.url }}" alt="">
 												<div class="post-content">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
+													<h2><a href="{% url 'news_detail' id=haber.id %}">{{ haber.title }} </a></h2>
 													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+														<li><i class="fa fa-clock-o"></i>{{haber.created_on}}</li>
 													</ul>
 												</div>
 											</li>
-
-											<li>
-												<img src="upload/news-posts/listw2.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Sed arcu. Cras consequat. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="upload/news-posts/listw3.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Phasellus ultrices nulla quis nibh. Quisque a lectus.  </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="upload/news-posts/listw4.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Donec consectetuer ligula vulputate sem tristique cursus. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="upload/news-posts/listw5.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
+											{%endfor%}
 										</ul>
 									</div>
-									<div class="tab-pane" id="option2">
-										<ul class="list-posts">
 
-											<li>
-												<img src="upload/news-posts/listw3.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Phasellus ultrices nulla quis nibh. Quisque a lectus. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
 
-											<li>
-												<img src="upload/news-posts/listw4.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Donec consectetuer ligula vulputate sem tristique cursus. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="upload/news-posts/listw5.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-											<li>
-												<img src="upload/news-posts/listw1.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="upload/news-posts/listw2.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Sed arcu. Cras consequat.</a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-										</ul>
-									</div>
-									<div class="tab-pane" id="option3">
-										<ul class="list-posts">
-
-											<li>
-												<img src="upload/news-posts/listw4.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Donec consectetuer ligula vulputate sem tristique cursus. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="upload/news-posts/listw1.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="upload/news-posts/listw3.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Phasellus ultrices nulla quis nibh. Quisque a lectus.  </a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="upload/news-posts/listw2.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Sed arcu. Cras consequat.</a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-
-											<li>
-												<img src="upload/news-posts/listw5.jpg" alt="">
-												<div class="post-content">
-													<h2><a href="single-post.html">Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</a></h2>
-													<ul class="post-tags">
-														<li><i class="fa fa-clock-o"></i>27 may 2013</li>
-													</ul>
-												</div>
-											</li>
-										</ul>
-									</div>
 								</div>
 							</div>
 
