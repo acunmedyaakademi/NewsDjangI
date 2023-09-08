@@ -65,10 +65,9 @@
 									</ul>
 
 									<div class="tab-content">
-										{% for yazar in yazarlar%}
 										<div class="tab-pane active" id="about-autor">
 											<div class="autor-box">
-												<img src="{% static 'upload/users/avatar1.jpg'%}" alt="">
+												<img src="{{ yazar.image.url }}" alt="">
 												<div class="autor-content">
 													<div class="autor-title">
 														<h1><span>{{yazar.name}}</span></h1>
@@ -79,7 +78,7 @@
 												</div>
 											</div>
 										</div>
-										{%endfor%}
+
 
 										<div class="tab-pane" id="more-autor">
 											<div class="more-autor-posts">

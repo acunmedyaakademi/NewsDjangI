@@ -5,20 +5,19 @@ from . models import newsCategory, News, Author
 def homepage(request,):
     kategori = newsCategory.objects.all()
     haberler = News.objects.all()
-    yazar = Author.objects.all()
+    yazarlar = Author.objects.all()
     return render(request,"pages/homepage.html", {
 
         'kategori': kategori,
         'haberler': haberler,
-        'yazar': yazar
+        'yazarlar': yazarlar
     })
 
-def news_detail(request, id, author_id):
+def news_detail(request, id):
     haber = get_object_or_404(News, id=id)
-    yazar = Author.objects.get(Author, author_id=author_id)
     return render(request, 'pages/single-post.html', {
         'haber': haber,
-        'yazar': yazar
+        'yazar': haber.author
     })
 
 def category(request, category):
