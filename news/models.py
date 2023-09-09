@@ -40,7 +40,7 @@ class News(models.Model):
     category = models.ForeignKey(newsCategory, on_delete=models.CASCADE, related_name='news')
     slug = AutoSlugField(populate_from='baslik', unique=True, editable=True, blank=True)
     image = models.ImageField(upload_to='news_images/', default='default_image.jpg')
-    author = models.ForeignKey(Author,on_delete=models.CASCADE, default="Yazar")
+    author = models.ForeignKey(Author,on_delete=models.CASCADE, blank=False, default="Yazar")
 
 
     class Meta:
