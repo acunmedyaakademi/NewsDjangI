@@ -60,7 +60,7 @@ class Comments(models.Model):
     name_surname = models.CharField(max_length=120)
     email = models.EmailField(max_length=120)
     comment = models.TextField()
-    news = models.ForeignKey(News, on_delete=models.CASCADE, default="yorum")
+    news = models.ForeignKey(News, on_delete=models.CASCADE, related_name="yorumlar")
 
     class Meta:
         db_table = 'Comments'

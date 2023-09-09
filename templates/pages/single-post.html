@@ -83,64 +83,21 @@
 								<!-- comment area box -->
 								<div class="comment-area-box">
 									<div class="title-section">
-										<h1><span>5 Comments</span></h1>
+										<h1><span>Yorumlar</span></h1>
 									</div>
 									<ul class="comment-tree">
-										<li>
-											<div class="comment-box">
-												<img alt="" src="upload/users/avatar6.jpg">
-												<div class="comment-content">
-													<h4>John Doe <a href="#"><i class="fa fa-comment-o"></i>Reply</a></h4>
-													<span><i class="fa fa-clock-o"></i>27 may 2013 at 8:57 pm</span>
-													<p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam. </p>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="comment-box">
-												<img alt="" src="{% static 'upload/users/avatar1.jpg'%}">
-												<div class="comment-content">
-													<h4>John Doe <a href="#"><i class="fa fa-comment-o"></i>Reply</a></h4>
-													<span><i class="fa fa-clock-o"></i>27 may 2013 at 8:57 pm</span>
-													<p>Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. </p>
-												</div>
-											</div>
-											<ul class="depth">
-												<li>
-													<div class="comment-box">
-														<img alt="" src="{% static 'upload/users/avatar2.jpg'%}">
-														<div class="comment-content">
-															<h4>John Doe <a href="#"><i class="fa fa-comment-o"></i>Reply</a></h4>
-															<span><i class="fa fa-clock-o"></i>27 may 2013 at 8:57 pm</span>
-															<p>CNullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non. </p>
-														</div>
-													</div>
-												</li>
-											</ul>
-										</li>
+										{% for comment in yorumlar%}
 
 										<li>
 											<div class="comment-box">
-												<img alt="" src="{% static 'upload/users/avatar4.jpg'%}">
 												<div class="comment-content">
-													<h4>John Doe <a href="#"><i class="fa fa-comment-o"></i>Reply</a></h4>
-													<span><i class="fa fa-clock-o"></i>27 may 2013 at 8:57 pm</span>
-													<p>Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. </p>
+													<h4>{{comment.name_surname}}</h4>
+													<span><i class="fa fa-clock-o"></i></span>
+													<p>{{comment.comment}} </p>
 												</div>
 											</div>
 										</li>
-
-										<li>
-											<div class="comment-box">
-												<img alt="" src="{% static 'upload/users/avatar5.jpg'%}">
-												<div class="comment-content">
-													<h4>John Doe <a href="#"><i class="fa fa-comment-o"></i>Reply</a></h4>
-													<span><i class="fa fa-clock-o"></i>27 may 2013 at 8:57 pm</span>
-													<p>Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel. </p>
-												</div>
-											</div>
-										</li>
-
+										{% endfor %}
 									</ul>
 								</div>
 								<!-- End comment area box -->
@@ -148,23 +105,25 @@
 								<!-- contact form box -->
 								<div class="contact-form-box">
 									<div class="title-section">
-										<h1><span>Yorumlar</span> <span class="email-not-published">E-posta adresiniz yayınlanmayacaktır.</span></h1>
+										<h1><span>Yorum Yap</span> <span class="email-not-published">E-posta adresiniz yayınlanmayacaktır.</span></h1>
 									</div>
 									<form id="comment-form">
+										{% csrf_token %}
+
 										<div class="row">
 											<div class="col-md-4">
-												<label for="name">Name*</label>
+												<label for="name">{{ form.name_surname }}</label>
 												<input id="name" name="name" type="text">
 											</div>
 											<div class="col-md-4">
-												<label for="mail">E-mail*</label>
+												<label for="mail">{{ form.email}}</label>
 												<input id="mail" name="mail" type="text">
 											</div>
 										</div>
-										<label for="comment">Comment*</label>
+										<label for="comment">{{ form.comment}}</label>
 										<textarea id="comment" name="comment"></textarea>
 										<button type="submit" id="submit-contact">
-											<i class="fa fa-comment"></i> Post Comment
+											<i class="fa fa-comment"></i> Gönder
 										</button>
 									</form>
 								</div>
