@@ -42,6 +42,7 @@ class News(models.Model):
     image = models.ImageField(upload_to='news_images/', default='default_image.jpg')
     author = models.ForeignKey(Author,on_delete=models.CASCADE, default="Yazar")
 
+
     class Meta:
         db_table = 'News'
         verbose_name = 'New'
@@ -57,9 +58,9 @@ class News(models.Model):
 
 class Comments(models.Model):
     name_surname = models.CharField(max_length=120)
-    Email = models.EmailField(max_length=120)
-    Comment = models.TextField()
-    News = models.ForeignKey(News, on_delete=models.CASCADE, default="yorum")
+    email = models.EmailField(max_length=120)
+    comment = models.TextField()
+    news = models.ForeignKey(News, on_delete=models.CASCADE, default="yorum")
 
     class Meta:
         db_table = 'Comments'
