@@ -8,6 +8,13 @@ class Author(models.Model):
     about = models.TextField()
     image = models.ImageField(upload_to='news_author_images/', default='default_image.jpg')
 
+
+    class Meta:
+        db_table = 'Author'
+        verbose_name = 'Yazar'
+        verbose_name_plural = 'Yazar'
+
+
     def __str__(self):
         return self.name
 
@@ -42,5 +49,25 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+
+
+
+class Comments(models.Model):
+    name_surname = models.CharField(max_length=120)
+    Email = models.EmailField(max_length=120)
+    Comment = models.TextField()
+    News = models.ForeignKey(News, on_delete=models.CASCADE, default="yorum")
+
+    class Meta:
+        db_table = 'Comments'
+        verbose_name = 'Yorumlar'
+        verbose_name_plural = 'Yorumlar'
+
+    def __str__(self):
+        return self.name_surname
+
 
 
