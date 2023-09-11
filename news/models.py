@@ -74,3 +74,17 @@ class Comments(models.Model):
 
 
 
+class Contact(models.Model):
+    name_surname = models.CharField(max_length=120)
+    email = models.EmailField(max_length=120)
+    mesaj = models.TextField()
+
+
+
+    class Meta:
+        db_table = 'Contact'
+        verbose_name = 'İletişim'
+        verbose_name_plural = 'İletişim'
+
+    def __str__(self):
+        return self.name_surname

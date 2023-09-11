@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import newsCategory, News, Author, Comments
-from .forms import CommentsForms
+from .models import newsCategory, News, Author, Comments, Contact
+from .forms import CommentsForms, ContactForms
 from django.contrib import messages
 
 
@@ -47,8 +47,25 @@ def category_detail(request, category_slug ):
 
 
 
-def contact(request):
-    return render(request, 'pages/contact.html')
+
+
+
+def Contact(request):
+    if request.method == 'POST':
+        form = ContactForms(request.POST)
+        if form.is_valid():
+            contact = form.save(commit=False)
+            contact.save()
+            messages.success(request, 'Mesajınız Gönderilmiştir')
+            return redirect('contact',)
+    else:
+        form = ContactForms()
+    return render(request, 'pages/contact.html', {
+        'form': form
+    })
+
+
+
 
 
 

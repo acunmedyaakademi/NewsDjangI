@@ -1,5 +1,5 @@
 from django import forms
-from .models import Comments
+from .models import Comments, Contact
 
 class CommentsForms(forms.ModelForm):
     class Meta:
@@ -11,4 +11,19 @@ class CommentsForms(forms.ModelForm):
             'email': 'E-posta',
             'comment': 'Yorum',
         }
+
+
+
+
+class ContactForms(forms.ModelForm):
+    class Meta:
+        model = Contact
+        exclude = ('iletişim',)
+        fields = ['name_surname', 'email', 'mesaj']
+        labels = {
+            'name_surname': 'İsim Soyisim',
+            'email': 'E-posta',
+            'mesaj': 'Mesaj'
+        }
+
 

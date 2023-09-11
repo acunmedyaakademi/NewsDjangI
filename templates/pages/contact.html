@@ -19,39 +19,41 @@
 									<h1><span>İletişim</span></h1>
 								</div>
 
-								<div id="map"></div>
+								<div id="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2103.0662843870873!2d29.009531999647884!3d41.11941899425697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab5b39cefc5e3%3A0xee4f06a4f79630ce!2sAcunmedya%20Akademi!5e0!3m2!1str!2str!4v1694431740028!5m2!1str!2str" width="760" height="375" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
 
-								<p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
-
+								<p>Neden bizimle iletişime geçip fikirlerini ve haberlerini paylaşmıyorsun? </p>
 							</div>
 							<!-- End contact info box -->
 
 							<!-- contact form box -->
 							<div class="contact-form-box">
 								<div class="title-section">
-									<h1><span>Talk to us</span></h1>
+									<h1><span>İletişime Geç</span></h1>
 								</div>
-								<form id="contact-form">
+								<form method="post" id="contact-form">
+									{% csrf_token %}
 									<div class="row">
 										<div class="col-md-4">
-											<label for="name">Name*</label>
-											<input id="name" name="name" type="text">
+											<label for="{{ form.name_surname.id_for_label }}">{{ form.name_surname.label }}</label>
+											{{ form.name_surname }}
 										</div>
 										<div class="col-md-4">
-											<label for="mail">E-mail*</label>
-											<input id="mail" name="mail" type="text">
-										</div>
-										<div class="col-md-4">
-											<label for="website">Website</label>
-											<input id="website" name="website" type="text">
+											<label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+											{{ form.email }}
 										</div>
 									</div>
-									<label for="comment">Your Message*</label>
-									<textarea id="comment" name="comment"></textarea>
+									<label for="{{ form.mesaj.id_for_label }}">{{ form.mesaj.label }}</label>
+									{{ form.mesaj }}
 									<button type="submit" id="submit-contact">
-										<i class="fa fa-paper-plane"></i> Send Message
+										<i class="fa fa-paper-plane"></i> Gönder
 									</button>
 								</form>
+
+								{% if messages %}
+										{% for message in messages %}
+										<div class="alert alert-success">{{ message }}</div>
+										{% endfor %}
+									{% endif %}
 							</div>
 							<!-- End contact form box -->
 
