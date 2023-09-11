@@ -5,15 +5,18 @@ from django.contrib import messages
 
 
 def homepage(request,):
-    kategori = newsCategory.objects.all()
     haberler = News.objects.all()
     yazarlar = Author.objects.all()
+    kategoriler = newsCategory.objects.all()
     return render(request,"pages/homepage.html", {
-
-        'kategori': kategori,
         'haberler': haberler,
-        'yazarlar': yazarlar
+        'yazarlar': yazarlar,
+        'kategoriler': kategoriler
     })
+
+
+
+
 def news_detail(request, slug):
     haber = get_object_or_404(News, slug=slug)
     yorumlar = haber.yorumlar.order_by('-id')
@@ -34,6 +37,9 @@ def news_detail(request, slug):
         'form': form,
         'yorumlar': yorumlar,
     })
+
+
+
 
 def category_detail(request, category_slug ):
     category = get_object_or_404(newsCategory, slug=category_slug)

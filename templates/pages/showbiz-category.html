@@ -84,27 +84,9 @@
 
 								<ul class="nav nav-tabs" id="myTab">
 									<li class="active">
-										<a href="#option1" data-toggle="tab">Gündem</a>
+										<a href="#option1" data-toggle="tab">Reklam</a>
 									</li>
 								</ul>
-
-								<div class="tab-content">
-									<div class="tab-pane active" id="option1">
-										<ul class="list-posts">
-											{% for haber in haberler%}
-												<li>
-													<img src="{{ haber.image.url }}" alt="">
-													<div class="post-content">
-														<h2><a href="{% url 'news_detail' slug=haber.slug %}">{{ haber.title }} </a></h2>
-														<ul class="post-tags">
-															<li><i class="fa fa-clock-o"></i>{{haber.created_on}}</li>
-														</ul>
-													</div>
-												</li>
-											{%endfor%}
-										</ul>
-									</div>
-								</div>
 							</div>
 
 							<div class="advertisement">

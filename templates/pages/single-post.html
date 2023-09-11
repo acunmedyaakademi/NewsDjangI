@@ -106,7 +106,7 @@
 									<div class="title-section">
 										<h1><span>Yorum Yap</span> <span class="email-not-published">E-posta adresiniz yayınlanmayacaktır.</span></h1>
 									</div>
-									<form action="{% url 'news_detail' haber.id %}" method="post"  id="comment-form">
+									<form action="{% url 'news_detail' haber.slug %}" method="post"  id="comment-form">
 										{% csrf_token %}
 
 										<div class="row">

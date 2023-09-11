@@ -109,9 +109,11 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav navbar-left">
-									{% for category in categories %}
-										<li><a href="{% url 'category_detail' category.slug %}">{{ category.name }}</a></li>
-									{%endfor%}
+									<li><a href="{% url 'homepage' %}">Ana Sayfa</a></li>
+									<li><a href="{% url 'contact' %}">İletişim</a></li>
+									{% for kategori in kategoriler %}
+        								<li><a href="{% url 'category_detail' category_slug=kategori.slug %}">{{ kategori.name }}</a></li>
+									{% endfor %}
 								</ul>
 						</div>
 						<!-- /.navbar-collapse -->
