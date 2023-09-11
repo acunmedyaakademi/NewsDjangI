@@ -21,6 +21,8 @@ class Author(models.Model):
 
 class newsCategory(models.Model):
      name = models.CharField(max_length=120)
+     slug = AutoSlugField(populate_from='isim', unique=True, editable=True, blank=True)
+
      class Meta:
          db_table = 'NewsCategories'
          verbose_name = 'Haber Kategorisi'
@@ -37,7 +39,7 @@ class News(models.Model):
     contents = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     update_on = models.DateTimeField(auto_now=True)
-    category = models.ForeignKey(newsCategory, on_delete=models.CASCADE, related_name='news')
+    category = models.ForeignKey(newsCategory, on_delete=models.CASCADE, related_name='kategori')
     slug = AutoSlugField(populate_from='baslik', unique=True, editable=True, blank=True)
     image = models.ImageField(upload_to='news_images/', default='default_image.jpg')
     author = models.ForeignKey(Author,on_delete=models.CASCADE, blank=False, default="Yazar")

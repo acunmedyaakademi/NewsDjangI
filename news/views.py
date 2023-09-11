@@ -14,8 +14,8 @@ def homepage(request,):
         'haberler': haberler,
         'yazarlar': yazarlar
     })
-def news_detail(request, id):
-    haber = get_object_or_404(News, id=id)
+def news_detail(request, slug):
+    haber = get_object_or_404(News, slug=slug)
     yorumlar = haber.yorumlar.order_by('-id')
     if request.method == 'POST':
         form = CommentsForms(request.POST)
@@ -24,7 +24,7 @@ def news_detail(request, id):
             comment.news = haber
             comment.save()
             messages.success(request, 'Yorum başarıyla eklendi')
-            return redirect('news_detail', haber.id)
+            return redirect('news_detail', haber.slug)
     else:
         form = CommentsForms()
 
@@ -35,10 +35,10 @@ def news_detail(request, id):
         'yorumlar': yorumlar,
     })
 
-def category(request, category):
-    kategori = get_object_or_404(News, category=category)
-    return render(request, 'showbiz-category.html',{
-        'kategori': kategori
+def category(request, id ):
+    kategori = get_object_or_404(newsCategory, id=id)
+    return render(request, 'pages/showbiz-category.html',{
+        'kategori': kategori,
     })
 
 

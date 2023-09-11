@@ -95,7 +95,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="index.html"><img src="{% static 'images/logo.png' %}" alt=""></a>
+							<a class="navbar-brand" href="{% url 'homepage'%}"><img src="" alt=""></a>
 						</div>
 
 					</div>
@@ -110,10 +110,10 @@
 							<ul class="nav navbar-nav navbar-left">
 
 								<li><a href="{% url 'homepage'%}">Ana Sayfa</a></li>
-								<li><a href="#">Spor</a></li>
-								<li><a href="#">Ekonomi</a></li>
-								<li><a href="#">Siyaset</a></li>
-								<li><a href="#">Astroloji</a></li>
+								<li><a href="{% url 'homepage'%}">Spor</a></li>
+								<li><a href="{% url 'homepage'%}">Ekonomi</a></li>
+								<li><a href="{% url 'homepage'%}">Siyaset</a></li>
+								<li><a href="{% url 'homepage'%}">Astroloji</a></li>
 
 
 							</ul>
@@ -178,7 +178,7 @@
 										<img src="{{ haber.image.url }}" alt="">
 										<div class="post-content">
 											<a href="#">{{haber.category}}</a>
-											<h2><a href="{% url 'news_detail' id=haber.id %}">{{ haber.title }} </a></h2>
+											<h2><a href="{% url 'news_detail' slug=haber.slug %}">{{ haber.title }} </a></h2>
 											<ul class="post-tags">
 												<li><i class="fa fa-clock-o"></i>{{haber.created_on}}</li>
 											</ul>
