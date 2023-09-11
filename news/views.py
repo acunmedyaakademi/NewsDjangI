@@ -47,7 +47,8 @@ def category_detail(request, category_slug ):
 
 
 
-
+def contact(request):
+    return render(request, 'pages/contact.html')
 
 
 
