@@ -107,17 +107,11 @@
 					<div class="container">
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav navbar-left">
-
-								<li><a href="{% url 'homepage'%}">Ana Sayfa</a></li>
-								<li><a href="{% url 'homepage'%}">Spor</a></li>
-								<li><a href="{% url 'homepage'%}">Ekonomi</a></li>
-								<li><a href="{% url 'homepage'%}">Siyaset</a></li>
-								<li><a href="{% url 'homepage'%}">Astroloji</a></li>
-
-
-							</ul>
-
+								<ul class="nav navbar-nav navbar-left">
+									{% for category in categories %}
+										<li><a href="{% url 'category_detail' category.slug %}">{{ category.name }}</a></li>
+									{%endfor%}
+								</ul>
 						</div>
 						<!-- /.navbar-collapse -->
 					</div>

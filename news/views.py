@@ -35,11 +35,21 @@ def news_detail(request, slug):
         'yorumlar': yorumlar,
     })
 
-def category(request, id ):
-    kategori = get_object_or_404(newsCategory, id=id)
+def category_detail(request, category_slug ):
+    category = get_object_or_404(newsCategory, slug=category_slug)
+    categories = newsCategory.objects.all()
+    news_in_category = News.objects.filter(category=category).order_by('-created_on')
     return render(request, 'pages/showbiz-category.html',{
-        'kategori': kategori,
+        'category': category,
+        'categories': categories,
+        'news_in_category': news_in_category
     })
+
+
+
+
+
+
 
 
 
